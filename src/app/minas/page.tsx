@@ -74,7 +74,8 @@ export default function MinasPage() {
             </div>
           ) : (
             minas.map((mina) => {
-              const pollutionLevel = getPollutionLevel(mina.Nivel_de_polucion);
+              const nivel = mina.Nivel_de_polucion ?? 0;
+              const pollutionLevel = getPollutionLevel(nivel);
               return (
                 <Card key={mina.Id}>
                   <div className="space-y-4">
@@ -102,11 +103,11 @@ export default function MinasPage() {
                         <div className="flex-1 bg-neutral-light rounded-full h-3 overflow-hidden">
                           <div
                             className={`h-full ${pollutionLevel.color} transition-all`}
-                            style={{ width: `${(mina.Nivel_de_polucion / 10) * 100}%` }}
+                            style={{ width: `${(nivel / 10) * 100}%` }}
                           />
                         </div>
                         <span className={`text-sm font-bold ${pollutionLevel.textColor}`}>
-                          {mina.Nivel_de_polucion.toFixed(1)}
+                          {mina.Nivel_de_polucion != null ? nivel.toFixed(1) : 'N/A'}
                         </span>
                       </div>
                       <div className="mt-2 flex items-center space-x-2">
