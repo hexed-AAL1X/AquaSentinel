@@ -22,15 +22,29 @@ export default function MinasPage() {
     try {
       const response = await api.get('/minas');
       if (response.data.success) {
-        const data = (response.data.data || []) as Mina[];
+        const data = (response.data.data || []) as any[];
         const mapped: Mina[] = data.map((m) => {
-          let impacto = m.Impacto_ambiental;
+          const lat = m.Latitud != null ? Number(m.Latitud) : null;
+          const lng = m.Longitud != null ? Number(m.Longitud) : null;
+          let coords: string | undefined;
+          if (lat != null && lng != null && !Number.isNaN(lat) && !Number.isNaN(lng)) {
+            coords = `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+          }
+
+          let impacto = m.Impacto_ambiental as string | undefined;
           if (!impacto && typeof m.Nivel_de_polucion === 'number') {
             if (m.Nivel_de_polucion >= 70) impacto = 'Alto';
             else if (m.Nivel_de_polucion >= 30) impacto = 'Medio';
             else impacto = 'Bajo';
           }
-          return { ...m, Impacto_ambiental: impacto };
+
+          return {
+            ...m,
+            Impacto_ambiental: impacto,
+            Tipo_de_minerales: m.Tipo_de_minerales || m.TipoMineral || undefined,
+            Coordenadas: m.Coordenadas || coords,
+            Ubicacion: m.Ubicacion || coords,
+          } as Mina;
         });
         setMinas(mapped);
       }

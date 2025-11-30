@@ -22,7 +22,21 @@ export default function RiosPage() {
     try {
       const response = await api.get('/rios');
       if (response.data.success) {
-        setRios(response.data.data);
+        const data = (response.data.data || []) as Rio[];
+        const mapped = data.map((rio) => {
+          const lat = rio.Latitud != null ? Number(rio.Latitud as any) : null;
+          const lng = rio.Longitud != null ? Number(rio.Longitud as any) : null;
+          let coords: string | undefined;
+          if (lat != null && lng != null && !Number.isNaN(lat) && !Number.isNaN(lng)) {
+            coords = `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+          }
+          return {
+            ...rio,
+            Coordenadas: rio.Coordenadas || coords,
+            Departamento: rio.Departamento || rio.Cuenca || undefined,
+          };
+        });
+        setRios(mapped);
       }
     } catch (error) {
       console.error('Error fetching rivers:', error);
