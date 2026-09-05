@@ -1,154 +1,191 @@
-# AquaSentinel Frontend
+<a id="readme-top"></a>
+<!-- SHIELDS -->
+<img src="https://github.com/AnderMendoza/AnderMendoza/raw/main/assets/line-neon.gif" width="100%">
+<p align='center'> 
+  <img alt="GitHub Repo contributors" src="https://img.shields.io/github/contributors/hexed-AAL1X/AquaSentinel?style=for-the-badge">&nbsp;
+  <img alt="GitHub Repo forks" src="https://img.shields.io/github/forks/hexed-AAL1X/AquaSentinel?style=for-the-badge">&nbsp;
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/hexed-AAL1X/AquaSentinel?style=for-the-badge">&nbsp;
+  <img alt="GitHub Repo issues" src="https://img.shields.io/github/issues/hexed-AAL1X/AquaSentinel?style=for-the-badge">&nbsp;
+</p>
 
-Sistema de monitoreo de calidad de agua en ríos - Interfaz de usuario.
+<!-- PROJECT LOGO -->
+<br>
+<div align="center">
+   <img src="public/logo.png" alt="Logo" width="120">
+   <h3 align="center">AquaSentinel</h3>
+   <p align="center">
+     Real-time river water quality monitoring for the Amazon
+     <br>
+     <a href="https://github.com/hexed-AAL1X/AquaSentinel"><strong>Explore the docs »</strong></a>
+     <br>
+     <br>
+     <a href="https://github.com/hexed-AAL1X/AquaSentinel">View Demo</a>
+     ·
+     <a href="https://github.com/hexed-AAL1X/AquaSentinel/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+     ·
+     <a href="https://github.com/hexed-AAL1X/AquaSentinel/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+   </p>
+</div>
 
-## 🚀 Tecnologías
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-proyect">About The Project</a>
+      <ul>
+        <li>
+          <a href="#built-with">Built With</a>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#important-notices">Important Notices</a></li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#contributing">Contributing</a>
+      <ul>
+        <li>
+          <a href="#top-contributors">Top Contributors</a>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+<br>
 
-- **Next.js 14** - Framework React con App Router
-- **TypeScript** - Tipado estático
-- **Tailwind CSS** - Estilos utilitarios
-- **Axios** - Cliente HTTP
-- **Lucide React** - Iconos
-- **Recharts** - Gráficos (opcional)
+<!-- ABOUT THE PROJECT -->
+<a id="about-the-proyect"></a>***About The Project***
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-## 🎨 Paleta de Colores
+<div align="center">
+  <img src="public/assets/images/dashboard.png" alt="AquaSentinel Dashboard" width="900">
+</div>
 
-| Tipo | Color | Código HEX | Uso |
-|------|-------|-----------|-----|
-| Primario | Azul río | `#0077B6` | Fondo principal, encabezados |
-| Secundario | Naranja alerta | `#FF6B35` | Botones, alertas, notificaciones |
-| Complementario | Verde selva | `#2A9D8F` | Indicadores "ok" / datos normales |
-| Neutro claro | Gris claro | `#E5E5E5` | Fondos de paneles, tarjetas |
-| Neutro oscuro | Gris oscuro | `#333333` | Texto principal, íconos |
+AquaSentinel is a web platform for monitoring river water quality and detecting mercury contamination linked to illegal mining in Madre de Dios. The frontend delivers dashboards, alerts, maps, and sensor health views so teams can protect public health and Amazonian biodiversity with continuous 24/7 visibility.
 
-## 📦 Instalación
+Here's why:
 
-```bash
-# Instalar dependencias
-npm install
+* Illegal mining releases more than 180 tons of mercury per year in the region — AquaSentinel turns sensor data into clear, actionable insight.
+* The UI covers rivers, mines, sensor maintenance, anomaly detection, and reports in a single responsive experience.
+* Built as a modern Next.js app with JWT auth, live charts, and Mapbox-powered geography.
 
-# Copiar archivo de entorno
-cp .env.local.example .env.local
+Of course, this is an evolving release. Upcoming updates will keep refining performance, visualizations, and operational workflows.
 
-# Editar .env.local con la URL de tu API
-# NEXT_PUBLIC_API_URL=http://tu-servidor/api
-```
+<a id="built-with"></a> 
+### Built With
+* ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)&nbsp;
+* ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)&nbsp;
+* ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)&nbsp;
+* ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)&nbsp;
+* ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)&nbsp;
+* ![Mapbox](https://img.shields.io/badge/Mapbox-000000?style=for-the-badge&logo=mapbox&logoColor=white)&nbsp;
+* ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)&nbsp;
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🏃 Ejecución
+<!-- IMPORTANT NOTICES -->
+<a id="important-notices"></a>***Important Notices***
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-```bash
-# Modo desarrollo
-npm run dev
+> [!NOTE]  
+> To install and run AquaSentinel, make sure you have the following:
+> 
+> | Requirement        | Description                                                                                       |
+> |--------------------|---------------------------------------------------------------------------------------------------|
+> | Operative System    | ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black&color=black) ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white&color=black) ![macOS](https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white&color=black) |
+> | Runtime             | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white&color=black) |
+> | Package Manager     | ![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white&color=black) |
+> | Backend             | REST API available and CORS configured |
+ 
+> [!IMPORTANT]\
+> We are a small team, but we are committed to improving AquaSentinel. Expect continuous updates to strengthen monitoring accuracy, UI performance, and field operations support.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Compilar para producción
+<!-- GETTING STARTED -->
+<a id="getting-started"></a>***Getting Started***
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+These are instructions on how to configure your project locally. To get a local copy up and running, follow these simple example steps.
+
+<a id="prerequisites"></a>
+### Prerequisites
+These are the items needed to use the software and how to install them:
+* [Node.js](https://nodejs.org/) 18+ (LTS recommended)
+* npm (bundled with Node.js)
+* A running AquaSentinel API (or a compatible REST backend)
+
+<a id="installation"></a>
+### Installation
+_Below is an example of how to install and configure AquaSentinel on your local machine._
+
+1. Clone the repository
+   ```sh
+   git clone https://github.com/hexed-AAL1X/AquaSentinel.git
+   ```
+2. Navigate to the project directory
+   ```sh
+   cd AquaSentinel
+   ```
+3. Install dependencies
+   ```sh
+   npm install
+   ```
+4. Create a `.env.local` file in the project root with your values:
+   ```env
+   NEXT_PUBLIC_API_URL=http://localhost/api
+   NEXT_PUBLIC_MAPBOX_TOKEN=your_mapbox_token
+   ```
+5. Run the development server
+   ```sh
+   npm run dev
+   ```
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+7. (Optional) Change the Git remote URL to prevent accidental pushes to the base project
+   ```sh
+   git remote set-url origin https://github.com/tu_usuario/AquaSentinel
+   git remote -v #confirm the changes
+   ```
+
+### Production
+```sh
 npm run build
-
-# Ejecutar en producción
 npm start
 ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-El servidor se iniciará en [http://localhost:3000](http://localhost:3000)
+<!-- CONTRIBUTING -->
+<a id="contributing"></a>***Contributing***
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+Contributions are what make the open source community an amazing place to learn, be inspired, and create. Any contribution you wish to make is very welcome!
 
-## 📁 Estructura del Proyecto
+If you have a suggestion to improve the project, you can fork the repository and open a pull request.
+Don't forget to give the project a star! Thanks for contributing!
 
-```
-frontend/
-├── src/
-│   ├── app/                    # App Router de Next.js
-│   │   ├── dashboard/         # Página principal
-│   │   ├── login/             # Autenticación
-│   │   ├── rios/              # Gestión de ríos
-│   │   ├── minas/             # Gestión de minas
-│   │   ├── mantenimiento/     # Estado de sensores
-│   │   ├── layout.tsx         # Layout principal
-│   │   ├── page.tsx           # Página de inicio
-│   │   └── globals.css        # Estilos globales
-│   ├── components/            # Componentes reutilizables
-│   │   ├── Navbar.tsx         # Barra de navegación
-│   │   ├── Card.tsx           # Tarjeta genérica
-│   │   ├── StatCard.tsx       # Tarjeta de estadísticas
-│   │   └── AlertBadge.tsx     # Badge de alertas
-│   ├── lib/                   # Utilidades
-│   │   └── api.ts             # Cliente API con Axios
-│   └── types/                 # Definiciones TypeScript
-│       └── index.ts           # Tipos de datos
-├── public/                    # Archivos estáticos
-│   └── logo.png              # Logo del proyecto
-├── tailwind.config.ts        # Configuración Tailwind
-├── tsconfig.json             # Configuración TypeScript
-├── next.config.js            # Configuración Next.js
-└── package.json              # Dependencias
-```
+1. Fork the project.
+2. Create a branch for your improvement (`git checkout -b feature/NewImprovement`).
+3. Make your changes and commit (`git commit -m 'Add New Improvement'`).
+4. Push your changes to the branch (`git push origin feature/NewImprovement`).
+5. Open a pull request.
 
-## 🔐 Autenticación
+<a id="top-contributors"></a>
+### Top contributors:
+<div align="center">
+  <a href="https://github.com/hexed-AAL1X"><img src="https://github.com/hexed-AAL1X.png" alt="hexed-AAL1X" width="150" height="150" style="border-radius: 50%; border: 2px solid #000;"/></a>
+</div>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-El sistema utiliza JWT para autenticación. El token se almacena en `localStorage` y se envía automáticamente en cada petición mediante interceptores de Axios.
-
-## 📡 Conexión con la API
-
-La aplicación se conecta a la API REST del backend. Asegúrate de:
-
-1. Configurar la URL de la API en `.env.local`
-2. Que el servidor API esté corriendo
-3. Que CORS esté configurado correctamente en el backend
-
-## 🎯 Funcionalidades
-
-- ✅ Dashboard con estadísticas en tiempo real
-- ✅ Gestión de ríos monitoreados
-- ✅ Registro de minas y niveles de contaminación
-- ✅ Estado de mantenimiento de sensores
-- ✅ Sistema de autenticación
-- ✅ Alertas visuales por nivel de contaminación
-- ✅ Interfaz responsive
-
-## 🔧 Configuración Adicional
-
-### Variables de Entorno
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost/api
-```
-
-### Personalización de Colores
-
-Los colores están definidos en `tailwind.config.ts` y pueden ser modificados según necesidad:
-
-```typescript
-colors: {
-  primary: '#0077B6',
-  secondary: '#FF6B35',
-  accent: '#2A9D8F',
-  // ...
-}
-```
-
-## 📱 Páginas Disponibles
-
-- `/` - Redirección al dashboard
-- `/login` - Inicio de sesión
-- `/dashboard` - Panel principal con estadísticas
-- `/rios` - Lista y gestión de ríos
-- `/minas` - Lista y gestión de minas
-- `/mantenimiento` - Estado de sensores
-
-## 🐛 Solución de Problemas
-
-### Error de conexión con la API
-
-Verifica que:
-- La URL de la API en `.env.local` sea correcta
-- El servidor backend esté corriendo
-- No haya problemas de CORS
-
-### Errores de TypeScript
-
-```bash
-# Limpiar cache y reinstalar
-rm -rf .next node_modules
-npm install
-```
-
-## 📄 Licencia
-
-Proyecto académico - Sistema de Monitoreo de Ríos
+<!-- CONTACT -->
+<a id="contact"></a>***Contact***
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+<p align="center">
+  <a href="mailto:hexed_aal1x.ops@proton.me"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=black" /></a>
+  <a href="https://www.instagram.com/hexed_aal1x"><img src="https://img.shields.io/badge/instagram-%2312100E.svg?&style=for-the-badge&logo=instagram&logoColor=white&color=black" /></a>
+  <a href="https://www.linkedin.com/in/leonardo-bravo-4120b8228/"><img src="https://img.shields.io/badge/linkedin-%2312100E.svg?&style=for-the-badge&logo=linkedin&logoColor=white&color=black" /></a>
+</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
