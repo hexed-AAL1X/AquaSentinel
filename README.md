@@ -11,7 +11,7 @@
 <!-- PROJECT LOGO -->
 <br>
 <div align="center">
-   <img src="public/logo.png" alt="Logo" width="120">
+   <img src="public/logo.png" alt="Logo" width="320">
    <h3 align="center">AquaSentinel</h3>
    <p align="center">
      Real-time river water quality monitoring for the Amazon
