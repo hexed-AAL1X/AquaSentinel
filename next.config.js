@@ -8,7 +8,7 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://aquasentinel.brazilsouth.cloudapp.azure.com/api/:path*',
+        destination: 'https://aquasentinel.alwaysdata.net/api/:path*',
       },
     ];
   },
