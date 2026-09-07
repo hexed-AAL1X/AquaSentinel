@@ -173,6 +173,32 @@ Don't forget to give the project a star! Thanks for contributing!
 4. Push your changes to the branch (`git push origin feature/NewImprovement`).
 5. Open a pull request.
 
+<a id="top-contributors"></a>
+### Top contributors
+
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center" width="160">
+      <a href="https://github.com/SebasTM502">
+        <img src="https://avatars.githubusercontent.com/u/206435498?v=4" width="88" height="88" alt="SebasTM502" style="border-radius:50%;" /><br />
+        <b>SebasTM502</b><br />
+        <sub>@SebasTM502</sub>
+      </a>
+    </td>
+    <td align="center" width="160">
+      <a href="https://github.com/Andres0542">
+        <img src="https://avatars.githubusercontent.com/u/136258763?v=4" width="88" height="88" alt="Anarchy Panty" style="border-radius:50%;" /><br />
+        <b>Anarchy Panty</b><br />
+        <sub>@Andres0542</sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+</div>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
