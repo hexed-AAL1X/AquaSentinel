@@ -173,11 +173,6 @@ Don't forget to give the project a star! Thanks for contributing!
 4. Push your changes to the branch (`git push origin feature/NewImprovement`).
 5. Open a pull request.
 
-<a id="top-contributors"></a>
-### Top contributors:
-<div align="center">
-  <a href="https://github.com/hexed-AAL1X"><img src="https://github.com/hexed-AAL1X.png" alt="hexed-AAL1X" width="150" height="150" style="border-radius: 50%; border: 2px solid #000;"/></a>
-</div>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
