@@ -11,7 +11,7 @@
 <!-- PROJECT LOGO -->
 <br>
 <div align="center">
-   <img src="public/logo.png" alt="Logo" width="320">
+   <img src="public/logo.webp" alt="Logo" width="320">
    <h3 align="center">AquaSentinel</h3>
    <p align="center">
      Real-time river water quality monitoring for the Amazon
@@ -65,7 +65,7 @@
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 <div align="center">
-  <img src="public/assets/images/dashboard.png" alt="AquaSentinel Dashboard" width="900">
+  <img src="public/assets/images/dashboard.webp" alt="AquaSentinel Dashboard" width="900">
 </div>
 
 AquaSentinel is a web platform for monitoring river water quality and detecting mercury contamination linked to illegal mining in Madre de Dios. The frontend delivers dashboards, alerts, maps, and sensor health views so teams can protect public health and Amazonian biodiversity with continuous 24/7 visibility.
@@ -172,6 +172,32 @@ Don't forget to give the project a star! Thanks for contributing!
 3. Make your changes and commit (`git commit -m 'Add New Improvement'`).
 4. Push your changes to the branch (`git push origin feature/NewImprovement`).
 5. Open a pull request.
+
+<a id="top-contributors"></a>
+### Top contributors
+
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center" width="160">
+      <a href="https://github.com/SebasTM502">
+        <img src="https://avatars.githubusercontent.com/u/206435498?v=4" width="88" height="88" alt="SebasTM502" style="border-radius:50%;" /><br />
+        <b>SebasTM502</b><br />
+        <sub>@SebasTM502</sub>
+      </a>
+    </td>
+    <td align="center" width="160">
+      <a href="https://github.com/Andres0542">
+        <img src="https://avatars.githubusercontent.com/u/136258763?v=4" width="88" height="88" alt="Anarchy Panty" style="border-radius:50%;" /><br />
+        <b>Anarchy Panty</b><br />
+        <sub>@Andres0542</sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

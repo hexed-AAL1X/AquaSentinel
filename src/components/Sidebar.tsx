@@ -112,7 +112,7 @@ export default function Sidebar({ userRole = 'user' }: SidebarProps) {
           aria-label={isCollapsed ? 'Expandir sidebar' : 'Colapsar sidebar'}
         >
           <div className="w-10 h-10 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center p-2 group-hover:bg-white/20 transition-colors">
-            <img src="/icon.png" alt="AquaSentinel" className="w-full h-full object-contain" />
+            <img src="/icon.webp" alt="AquaSentinel" className="w-full h-full object-contain" />
           </div>
           {!isCollapsed && (
             <div className="text-left">

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aqua-sentinel-two.vercel.app/sitemap.xml
