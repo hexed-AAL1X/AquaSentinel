@@ -1,7 +1,6 @@
 'use client';
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import { AlertCircle, AlertTriangle, CheckCircle, Info, X } from 'lucide-react';
 
 export type SnackbarVariant = 'success' | 'error' | 'info' | 'warning';
@@ -10,7 +9,7 @@ interface SnackbarState {
   id: string;
   message: string;
   variant: SnackbarVariant;
-  duration: number; // ms
+  duration: number;
 }
 
 interface SnackbarContextValue {
@@ -21,11 +20,19 @@ const SnackbarContext = createContext<SnackbarContextValue | undefined>(undefine
 
 export function useSnackbar(): SnackbarContextValue {
   const ctx = useContext(SnackbarContext);
-  if (!ctx) {
-    throw new Error('useSnackbar must be used within a SnackbarProvider');
-  }
+  if (!ctx) throw new Error('useSnackbar must be used within a SnackbarProvider');
   return ctx;
 }
+
+const variantStyles: Record<
+  SnackbarVariant,
+  { panel: string; accent: string; Icon: typeof CheckCircle }
+> = {
+  success: { panel: 'bg-accent/90 border-accent/60', accent: 'from-accent/70 to-accent', Icon: CheckCircle },
+  error: { panel: 'bg-secondary/90 border-secondary/70', accent: 'from-secondary/70 to-secondary', Icon: AlertCircle },
+  warning: { panel: 'bg-yellow-500/90 border-amber-300/80', accent: 'from-yellow-400/80 to-amber-500', Icon: AlertTriangle },
+  info: { panel: 'bg-primary/90 border-primary/70', accent: 'from-primary/70 to-primary', Icon: Info },
+};
 
 export default function SnackbarProvider({ children }: { children: React.ReactNode }) {
   const [snackbar, setSnackbar] = useState<SnackbarState | null>(null);
@@ -43,110 +50,58 @@ export default function SnackbarProvider({ children }: { children: React.ReactNo
     setSnackbar(null);
   }, []);
 
-  const showSnackbar = useCallback<SnackbarContextValue['showSnackbar']>(({ message, variant = 'info', durationMs = 3500 }) => {
-    clearTimer();
+  const showSnackbar = useCallback<SnackbarContextValue['showSnackbar']>(
+    ({ message, variant = 'info', durationMs = 3500 }) => {
+      clearTimer();
+      setSnackbar({
+        id: `${Date.now()}`,
+        message,
+        variant,
+        duration: durationMs,
+      });
+      timeoutRef.current = window.setTimeout(() => {
+        setSnackbar(null);
+        timeoutRef.current = null;
+      }, durationMs);
+    },
+    []
+  );
 
-    const id = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-    setSnackbar({ id, message, variant, duration: durationMs });
-
-    timeoutRef.current = window.setTimeout(() => {
-      setSnackbar(null);
-      timeoutRef.current = null;
-    }, durationMs);
-  }, []);
-
-  useEffect(() => {
-    return () => clearTimer();
-  }, []);
-
-  const value: SnackbarContextValue = { showSnackbar };
-
-  const getStylesByVariant = (variant: SnackbarVariant) => {
-    switch (variant) {
-      case 'success':
-        return {
-          accent: 'from-accent/70 to-accent',
-          panelBg: 'bg-accent/90',
-          border: 'border-accent/60',
-          icon: <CheckCircle size={18} className="text-emerald-100" />,
-        };
-      case 'error':
-        return {
-          accent: 'from-secondary/70 to-secondary',
-          panelBg: 'bg-secondary/90',
-          border: 'border-secondary/70',
-          icon: <AlertCircle size={18} className="text-red-100" />,
-        };
-      case 'warning':
-        return {
-          accent: 'from-yellow-400/80 to-amber-500',
-          panelBg: 'bg-yellow-500/90',
-          border: 'border-amber-300/80',
-          icon: <AlertTriangle size={18} className="text-yellow-50" />,
-        };
-      case 'info':
-      default:
-        return {
-          accent: 'from-primary/70 to-primary',
-          panelBg: 'bg-primary/90',
-          border: 'border-primary/70',
-          icon: <Info size={18} className="text-cyan-100" />,
-        };
-    }
-  };
+  useEffect(() => () => clearTimer(), []);
 
   return (
-    <SnackbarContext.Provider value={value}>
+    <SnackbarContext.Provider value={{ showSnackbar }}>
       {children}
-      <AnimatePresence>
-        {snackbar && (
-          <motion.div
-            key={snackbar.id}
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="fixed bottom-6 right-6 z-[9999]"
-          >
-            {(() => {
-              const styles = getStylesByVariant(snackbar.variant);
-              return (
-                <div className="max-w-sm relative">
-                  {/* Glow / gradient background */}
-                  <div
-                    aria-hidden="true"
-                    className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-r ${styles.accent} opacity-70 blur-sm`}
-                  />
-
-                  <div
-                    className={`relative overflow-hidden rounded-2xl ${styles.panelBg} ${styles.border} backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.55)] px-4 py-3 flex items-start gap-3 text-sm font-medium text-white`}
+      {snackbar && (
+        <div className="fixed bottom-6 right-6 z-[9999] animate-fadeInUp" role="status">
+          {(() => {
+            const styles = variantStyles[snackbar.variant];
+            const Icon = styles.Icon;
+            return (
+              <div className="max-w-sm relative">
+                <div
+                  aria-hidden
+                  className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-r ${styles.accent} opacity-70 blur-sm`}
+                />
+                <div
+                  className={`relative overflow-hidden rounded-2xl ${styles.panel} border backdrop-blur-xl shadow-[0_18px_45px_rgba(15,23,42,0.55)] px-4 py-3 flex items-start gap-3 text-sm font-medium text-white`}
+                >
+                  <Icon size={18} className="mt-0.5 flex-shrink-0 text-white" aria-hidden />
+                  <p className="flex-1 leading-snug">{snackbar.message}</p>
+                  <button
+                    type="button"
+                    onClick={hideSnackbar}
+                    className="ml-2 text-white/70 hover:text-white transition-colors flex-shrink-0"
+                    aria-label="Cerrar notificación"
                   >
-                    <div className="mt-0.5 flex-shrink-0">
-                      {styles.icon}
-                    </div>
-                    <div className="flex-1 leading-snug">
-                      {snackbar.message}
-                    </div>
-                    <button
-                      onClick={hideSnackbar}
-                      className="ml-2 text-white/70 hover:text-white transition-colors flex-shrink-0"
-                      aria-label="Cerrar notificación"
-                    >
-                      <X size={16} />
-                    </button>
-
-                    {/* Bottom accent bar */}
-                    <div
-                      aria-hidden="true"
-                      className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r ${styles.accent}`}
-                    />
-                  </div>
+                    <X size={16} />
+                  </button>
                 </div>
-              );
-            })()}
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </div>
+            );
+          })()}
+        </div>
+      )}
     </SnackbarContext.Provider>
   );
 }
