@@ -9,16 +9,33 @@ interface LoadingScreenProps {
 export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
   const [progress, setProgress] = useState(0);
   const [phase, setPhase] = useState<'in' | 'hold' | 'out'>('in');
-  const doneRef = useRef(false);
+  const onCompleteRef = useRef(onLoadingComplete);
+  const startedRef = useRef(false);
+
+  // Always keep latest callback without restarting the animation
+  useEffect(() => {
+    onCompleteRef.current = onLoadingComplete;
+  }, [onLoadingComplete]);
 
   useEffect(() => {
+    // Guard: only run the sequence once (avoids Strict Mode / remount restarts)
+    if (startedRef.current) return;
+    startedRef.current = true;
+
     const mobile = window.matchMedia('(max-width: 768px)').matches;
-    const duration = mobile ? 1400 : 2200;
+    const duration = mobile ? 1400 : 2000;
     const start = performance.now();
     let raf = 0;
+    let outTimer = 0;
+    let done = false;
 
-    // Ease-out cubic for smooth %
     const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const finish = () => {
+      if (done) return;
+      done = true;
+      onCompleteRef.current();
+    };
 
     const frame = (now: number) => {
       const t = Math.min(1, (now - start) / duration);
@@ -31,33 +48,27 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
 
       setProgress(100);
       setPhase('out');
-      window.setTimeout(() => {
-        if (!doneRef.current) {
-          doneRef.current = true;
-          onLoadingComplete();
-        }
-      }, 550);
+      outTimer = window.setTimeout(finish, 480);
     };
 
-    // small delay so enter animation paints first
     const kick = window.setTimeout(() => {
       setPhase('hold');
       raf = requestAnimationFrame(frame);
-    }, 80);
+    }, 60);
 
     return () => {
       clearTimeout(kick);
+      clearTimeout(outTimer);
       cancelAnimationFrame(raf);
     };
-  }, [onLoadingComplete]);
+  }, []);
 
   return (
     <div
       className={`fixed inset-0 z-[9999] flex items-center justify-center transition-opacity duration-500 ease-out ${
-        phase === 'out' ? 'opacity-0' : 'opacity-100'
+        phase === 'out' ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
       style={{
-        // sólido 100%: no se ve el hero detrás
         background: 'linear-gradient(135deg, #0077B6 0%, #0096C7 45%, #2A9D8F 100%)',
       }}
       aria-busy={phase !== 'out'}
@@ -79,6 +90,7 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
           height={114}
           className="h-24 md:h-32 w-auto"
           decoding="async"
+          fetchPriority="high"
         />
       </div>
 
