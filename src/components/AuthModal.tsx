@@ -176,7 +176,7 @@ export default function AuthModal({ isOpen, onClose, defaultTab = 'login' }: Aut
               <div className="flex flex-col items-center mb-5">
                 <div className="bg-primary/10 rounded-full p-3 mb-3">
                   <Image
-                    src="/icon.png"
+                    src="/icon.webp"
                     alt="AquaSentinel"
                     width={48}
                     height={48}

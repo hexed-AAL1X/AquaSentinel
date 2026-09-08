@@ -11,7 +11,7 @@
 <!-- PROJECT LOGO -->
 <br>
 <div align="center">
-   <img src="public/logo.png" alt="Logo" width="320">
+   <img src="public/logo.webp" alt="Logo" width="320">
    <h3 align="center">AquaSentinel</h3>
    <p align="center">
      Real-time river water quality monitoring for the Amazon
@@ -65,7 +65,7 @@
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
 <div align="center">
-  <img src="public/assets/images/dashboard.png" alt="AquaSentinel Dashboard" width="900">
+  <img src="public/assets/images/dashboard.webp" alt="AquaSentinel Dashboard" width="900">
 </div>
 
 AquaSentinel is a web platform for monitoring river water quality and detecting mercury contamination linked to illegal mining in Madre de Dios. The frontend delivers dashboards, alerts, maps, and sensor health views so teams can protect public health and Amazonian biodiversity with continuous 24/7 visibility.

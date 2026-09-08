@@ -23,17 +23,18 @@ export default function LandingNavbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-28">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center" aria-label="AquaSentinel inicio">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="AquaSentinel"
-              width={350}
-              height={100}
-              className={`h-24 w-auto transition-all duration-300 ${
+              width={220}
+              height={64}
+              className={`h-16 md:h-24 w-auto transition-all duration-300 ${
                 scrolled ? 'brightness-0 saturate-100' : ''
               }`}
               style={scrolled ? { filter: 'invert(28%) sepia(68%) saturate(2159%) hue-rotate(175deg) brightness(95%) contrast(101%)' } : {}}
               priority
+              sizes="(max-width: 768px) 160px, 220px"
             />
           </Link>
 
