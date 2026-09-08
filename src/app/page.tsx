@@ -68,7 +68,11 @@ export default function Home() {
           defaultTab={authTab}
         />
       )}
-      <main className="overflow-x-hidden">
+      <main
+        className={`overflow-x-hidden transition-opacity duration-300 ${
+          showLoader ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        }`}
+      >
         <LandingNavbar />
         <HeroSection />
         {belowFold && (

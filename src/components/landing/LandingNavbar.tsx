@@ -25,7 +25,7 @@ export default function LandingNavbar() {
         <div className="flex justify-between items-center h-28">
           <Link href="/" className="flex items-center" aria-label="AquaSentinel inicio">
             <Image
-              src="/logo.webp"
+              src="/logo-sm.webp"
               alt="AquaSentinel"
               width={180}
               height={52}

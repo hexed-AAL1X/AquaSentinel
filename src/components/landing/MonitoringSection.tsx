@@ -27,7 +27,7 @@ export default function MonitoringSection() {
           <h2 className="text-4xl md:text-5xl font-bold font-display text-neutral-dark mb-4">
             Amplia Gama de Sensores
           </h2>
-          <p className="text-xl text-neutral-dark/70 max-w-3xl mx-auto">
+          <p className="text-xl text-neutral-dark/80 max-w-3xl mx-auto">
             Sensores especializados instalados en los ríos Madre de Dios y Tambopata.
             Tecnología LoRaWAN para zonas rurales (alcance 15 km) y 4G/WiFi en zonas urbanas.
             Cada sensor realiza 2 lecturas por minuto, garantizando monitoreo continuo.

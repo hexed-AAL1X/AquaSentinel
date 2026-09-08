@@ -65,7 +65,7 @@ export default function ContactSection() {
           <h2 className="text-4xl md:text-5xl font-bold font-display text-neutral-dark mb-4">
             Ponte en Contacto
           </h2>
-          <p className="text-xl text-neutral-dark/70 max-w-3xl mx-auto">
+          <p className="text-xl text-neutral-dark/80 max-w-3xl mx-auto">
             Combatiendo la contaminación por minería ilegal en Madre de Dios.
             Más de 180 toneladas de mercurio liberadas al año. AquaSentinel protege
             la salud pública y biodiversidad amazónica con monitoreo continuo 24/7.
@@ -88,7 +88,7 @@ export default function ContactSection() {
                 <h3 className="text-xl font-semibold font-display text-neutral-dark mb-2">
                   Email
                 </h3>
-                <p className="text-neutral-dark/70">contacto@aquasentinel.com</p>
+                <p className="text-neutral-dark/80">contacto@aquasentinel.com</p>
               </div>
             </div>
 
@@ -100,7 +100,7 @@ export default function ContactSection() {
                 <h3 className="text-xl font-semibold font-display text-neutral-dark mb-2">
                   Teléfono
                 </h3>
-                <p className="text-neutral-dark/70">+1 (555) 123-4567</p>
+                <p className="text-neutral-dark/80">+1 (555) 123-4567</p>
               </div>
             </div>
 
@@ -112,7 +112,7 @@ export default function ContactSection() {
                 <h3 className="text-xl font-semibold font-display text-neutral-dark mb-2">
                   Ubicación
                 </h3>
-                <p className="text-neutral-dark/70">
+                <p className="text-neutral-dark/80">
                   Puerto Maldonado, Madre de Dios
                   <br />
                   Perú - Amazonía

@@ -44,7 +44,7 @@ export default function FeaturesSection() {
           <h2 className="text-4xl md:text-5xl font-bold font-display text-neutral-dark mb-4">
             Soluciones Avanzadas de Monitoreo
           </h2>
-          <p className="text-xl text-neutral-dark/70 max-w-3xl mx-auto">
+          <p className="text-xl text-neutral-dark/80 max-w-3xl mx-auto">
             El río Madre de Dios transporta 12 toneladas de mercurio al año.
             El 78% de la población presenta niveles 3x superiores a lo recomendado por la OMS.
             AquaSentinel protege a 5,650 usuarios y 50 instituciones con datos en tiempo real.
@@ -72,7 +72,7 @@ export default function FeaturesSection() {
                 <h3 className="text-xl font-semibold font-display text-neutral-dark mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-neutral-dark/70">{feature.description}</p>
+                <p className="text-neutral-dark/80">{feature.description}</p>
               </div>
             </motion.div>
           ))}

@@ -41,7 +41,7 @@ export default function EcosystemSection() {
             <h2 className="text-4xl md:text-5xl font-bold font-display text-white mb-6">
               El Ecosistema AquaSentinel
             </h2>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-white mb-8">
               Red de 10 sensores IoT en Puerto Maldonado monitoreando mercurio en tiempo real.
               Conectados vía AWS IoT Core con protocolos MQTT y HTTP.
               Sistema escalable a 50 sensores en 3 años para cubrir más cuencas amazónicas.
