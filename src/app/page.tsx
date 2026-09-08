@@ -18,6 +18,7 @@ const EcosystemSection = dynamic(() => import('@/components/landing/EcosystemSec
 const MonitoringSection = dynamic(() => import('@/components/landing/MonitoringSection'));
 const StatsSection = dynamic(() => import('@/components/landing/StatsSection'));
 const ContactSection = dynamic(() => import('@/components/landing/ContactSection'));
+const FaqSection = dynamic(() => import('@/components/landing/FaqSection'));
 const Footer = dynamic(() => import('@/components/landing/Footer'));
 
 type AuthTab = 'login' | 'signup' | 'forgot';
@@ -104,6 +105,7 @@ export default function Home() {
             <StatsSection />
             <MonitoringSection />
             <ContactSection />
+            <FaqSection />
             <Footer />
           </>
         )}
