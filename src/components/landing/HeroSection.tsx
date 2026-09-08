@@ -1,79 +1,21 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
-
 export default function HeroSection() {
-  const typedRef = useRef<HTMLSpanElement>(null);
-  const riverRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let typed: { destroy: () => void } | undefined;
-    let parallaxTween: { kill: () => void } | undefined;
-    let cancelled = false;
-
-    (async () => {
-      const [{ default: Typed }, { default: gsap }, { ScrollTrigger }] = await Promise.all([
-        import('typed.js'),
-        import('gsap'),
-        import('gsap/ScrollTrigger'),
-      ]);
-
-      if (cancelled || !typedRef.current) return;
-
-      gsap.registerPlugin(ScrollTrigger);
-
-      typed = new Typed(typedRef.current, {
-        strings: [
-          'Monitoreo en tiempo real de mercurio en los ríos',
-          'Protegiendo la salud pública amazónica',
-          'Datos precisos para decisiones críticas',
-          'Cuidando la biodiversidad del río Madre de Dios',
-        ],
-        typeSpeed: 50,
-        backSpeed: 30,
-        backDelay: 2000,
-        loop: true,
-        showCursor: true,
-        cursorChar: '|',
-      });
-
-      if (riverRef.current && window.matchMedia('(min-width: 768px)').matches) {
-        parallaxTween = gsap.to(riverRef.current, {
-          y: 100,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: riverRef.current,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true,
-          },
-        });
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-      typed?.destroy();
-      parallaxTween?.kill();
-    };
-  }, []);
-
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <div ref={riverRef} className="absolute inset-0 scale-110">
-          <Image
-            src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=75"
+        <picture>
+          <source media="(min-width: 768px)" srcSet="/hero-lg.webp" type="image/webp" />
+          <img
+            src="/hero.webp"
             alt="Río amazónico en Madre de Dios"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
+            width={960}
+            height={640}
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
           />
-        </div>
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/80" />
       </div>
 
@@ -87,60 +29,42 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl md:text-7xl font-bold font-display text-white mb-6 leading-tight tracking-wide"
-        >
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold font-display text-white mb-6 leading-tight tracking-wide">
           SISTEMA INTELIGENTE DE
           <br />
           MONITOREO AMBIENTAL
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto min-h-[4rem] flex items-center justify-center"
-        >
-          <span ref={typedRef} />
-        </motion.p>
+        <p className="text-lg md:text-2xl text-white/90 mb-10 md:mb-12 max-w-3xl mx-auto">
+          Monitoreo en tiempo real de mercurio en los ríos
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="#features"
-            className="px-8 py-4 bg-white text-primary rounded-full font-semibold hover:bg-white/90 transition-all transform hover:scale-105 shadow-lg"
+            className="px-8 py-4 bg-white text-primary rounded-full font-semibold hover:bg-white/90 transition-colors shadow-lg"
           >
             Conocer Más
           </a>
           <button
             type="button"
             onClick={() => window.dispatchEvent(new CustomEvent('openAuthModal'))}
-            className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-all"
+            className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
           >
             Acceder
           </button>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="fixed bottom-32 left-0 hidden md:flex flex-col items-center gap-2 pl-6 z-30"
-        >
+        <div className="fixed bottom-28 left-0 hidden md:flex flex-col items-center gap-2 pl-6 z-30">
           <span className="text-white text-sm font-medium tracking-wider rotate-90 origin-center">
             SCROLL
           </span>
-          <a href="#map" className="animate-bounce block mt-8" aria-label="Ir a la sección del mapa">
-            <ArrowDown className="text-white" size={28} aria-hidden />
+          <a href="#map" className="block mt-8" aria-label="Ir a la sección del mapa">
+            <svg className="text-white w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+              <path d="M12 5v14M19 12l-7 7-7-7" />
+            </svg>
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

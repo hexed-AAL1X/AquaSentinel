@@ -27,14 +27,13 @@ export default function LandingNavbar() {
             <Image
               src="/logo.webp"
               alt="AquaSentinel"
-              width={220}
-              height={64}
-              className={`h-16 md:h-24 w-auto transition-all duration-300 ${
+              width={180}
+              height={52}
+              className={`h-14 md:h-20 w-auto transition-all duration-300 ${
                 scrolled ? 'brightness-0 saturate-100' : ''
               }`}
               style={scrolled ? { filter: 'invert(28%) sepia(68%) saturate(2159%) hue-rotate(175deg) brightness(95%) contrast(101%)' } : {}}
-              priority
-              sizes="(max-width: 768px) 160px, 220px"
+              sizes="180px"
             />
           </Link>
 
