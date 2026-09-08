@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import LoadingScreen from '@/components/LoadingScreen';
 import LandingNavbar from '@/components/landing/LandingNavbar';
@@ -30,9 +30,13 @@ export default function Home() {
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authTab, setAuthTab] = useState<AuthTab>('login');
 
+  const handleLoadingComplete = useCallback(() => {
+    setShowLoader(false);
+  }, []);
+
+  // Auth + device flags (does not touch the loader)
   useEffect(() => {
-    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-    setDesktopFx(isDesktop);
+    setDesktopFx(window.matchMedia('(min-width: 768px)').matches);
 
     const openAuth = (tab: AuthTab = 'login') => {
       setAuthTab(tab);
@@ -48,19 +52,26 @@ export default function Home() {
       openAuth(authParam);
     }
 
-    const t1 = window.setTimeout(() => setBelowFold(true), 150);
-    const t2 = window.setTimeout(() => setMapReady(true), isDesktop ? 2000 : 4500);
+    return () => window.removeEventListener('openAuthModal', onOpen);
+  }, []);
+
+  // Load below-fold content only AFTER the splash finishes (avoids restarting it)
+  useEffect(() => {
+    if (showLoader) return;
+
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+    const t1 = window.setTimeout(() => setBelowFold(true), 50);
+    const t2 = window.setTimeout(() => setMapReady(true), isDesktop ? 1800 : 4000);
 
     return () => {
-      window.removeEventListener('openAuthModal', onOpen);
       window.clearTimeout(t1);
       window.clearTimeout(t2);
     };
-  }, []);
+  }, [showLoader]);
 
   return (
     <>
-      {showLoader && <LoadingScreen onLoadingComplete={() => setShowLoader(false)} />}
+      {showLoader && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       {authModalOpen && (
         <AuthModal
           isOpen={authModalOpen}

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function LandingNavbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,16 +23,17 @@ export default function LandingNavbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-28">
           <Link href="/" className="flex items-center" aria-label="AquaSentinel inicio">
-            <Image
+            <img
               src="/logo-sm.webp"
               alt="AquaSentinel"
               width={180}
-              height={52}
+              height={103}
               className={`h-14 md:h-20 w-auto transition-all duration-300 ${
                 scrolled ? 'brightness-0 saturate-100' : ''
               }`}
-              style={scrolled ? { filter: 'invert(28%) sepia(68%) saturate(2159%) hue-rotate(175deg) brightness(95%) contrast(101%)' } : {}}
-              sizes="180px"
+              style={scrolled ? { filter: 'invert(28%) sepia(68%) saturate(2159%) hue-rotate(175deg) brightness(95%) contrast(101%)' } : undefined}
+              decoding="async"
+              fetchPriority="low"
             />
           </Link>
 
