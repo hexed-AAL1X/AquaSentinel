@@ -35,7 +35,7 @@ export default function HeroSection() {
           MONITOREO AMBIENTAL
         </h1>
 
-        <p className="text-lg md:text-2xl text-white/90 mb-10 md:mb-12 max-w-3xl mx-auto">
+        <p className="text-lg md:text-2xl text-white mb-10 md:mb-12 max-w-3xl mx-auto">
           Monitoreo en tiempo real de mercurio en los ríos
         </p>
 

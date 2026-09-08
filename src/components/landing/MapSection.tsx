@@ -24,7 +24,7 @@ export default function MapSection() {
           <h2 className="text-4xl md:text-5xl font-bold font-display text-neutral-dark mb-4">
             Nuestra Ubicación
           </h2>
-          <p className="text-lg text-neutral-dark/70 max-w-2xl mx-auto">
+          <p className="text-lg text-neutral-dark/80 max-w-2xl mx-auto">
             Monitoreando la calidad del agua en <span className="text-primary font-semibold">Puerto Maldonado, Perú</span>
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function MapSection() {
                   <h3 className="text-xl font-display font-semibold text-neutral-dark mb-2">
                     Configuración del Mapa
                   </h3>
-                  <p className="text-sm text-neutral-dark/70 mb-4">
+                  <p className="text-sm text-neutral-dark/80 mb-4">
                     Para visualizar el mapa interactivo, configura tu token de MapBox
                   </p>
                   <a 
@@ -111,7 +111,7 @@ export default function MapSection() {
                 </div>
                 <h3 className="font-display font-semibold text-neutral-dark">Ubicación</h3>
               </div>
-              <p className="text-neutral-dark/70 text-sm">
+              <p className="text-neutral-dark/80 text-sm">
                 Puerto Maldonado, Madre de Dios, Perú
               </p>
             </div>
@@ -125,7 +125,7 @@ export default function MapSection() {
                 </div>
                 <h3 className="font-display font-semibold text-neutral-dark">Coordenadas</h3>
               </div>
-              <p className="text-neutral-dark/70 text-sm">
+              <p className="text-neutral-dark/80 text-sm">
                 12 35 36 S, 69 11 21 W
               </p>
             </div>
@@ -140,7 +140,7 @@ export default function MapSection() {
                 </div>
                 <h3 className="font-display font-semibold text-neutral-dark">Altitud</h3>
               </div>
-              <p className="text-neutral-dark/70 text-sm">
+              <p className="text-neutral-dark/80 text-sm">
                 183 metros sobre el nivel del mar
               </p>
             </div>

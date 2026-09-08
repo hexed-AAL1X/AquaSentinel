@@ -58,7 +58,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <p className="text-center text-sm text-white/60">
+          <p className="text-center text-sm text-white/80">
             © {new Date().getFullYear()} AquaSentinel. Todos los derechos reservados.
           </p>
         </div>

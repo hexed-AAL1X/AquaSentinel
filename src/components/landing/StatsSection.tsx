@@ -53,7 +53,7 @@ function StatCard({
         <Icon className="text-white" size={32} aria-hidden />
       </div>
       <div className="text-4xl md:text-5xl font-bold font-display text-white mb-2">{text}</div>
-      <div className="text-white/90 font-medium">{label}</div>
+      <div className="text-white font-medium">{label}</div>
     </div>
   );
 }
