@@ -1,100 +1,107 @@
-import type { Metadata, Viewport } from "next";
-import { Inter, Orbitron } from "next/font/google";
-import "./globals.css";
-import SnackbarProvider from "@/components/SnackbarProvider";
+import type { Metadata, Viewport } from 'next';
+import { Inter, Orbitron } from 'next/font/google';
+import './globals.css';
+import SnackbarProvider from '@/components/SnackbarProvider';
+import {
+  defaultDescription,
+  defaultTitle,
+  jsonLdGraph,
+  keywords,
+  siteName,
+  siteUrl,
+} from '@/lib/seo';
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
   preload: true,
 });
 
 const orbitron = Orbitron({
-  subsets: ["latin"],
-  variable: "--font-orbitron",
-  display: "swap",
-  weight: ["500", "700"],
+  subsets: ['latin'],
+  variable: '--font-orbitron',
+  display: 'swap',
+  weight: ['500', '700'],
   preload: true,
 });
-
-const siteUrl = "https://aqua-sentinel-two.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "AquaSentinel - Monitoreo de Ríos",
-    template: "%s | AquaSentinel",
+    default: defaultTitle,
+    template: '%s',
   },
-  description:
-    "Sistema de vigilancia de ríos que alerta a tiempo sobre contaminación por mercurio y minería ilegal, para cuidar la salud de las personas y la Amazonía.",
-  applicationName: "AquaSentinel",
-  authors: [{ name: "AquaSentinel" }],
-  creator: "AquaSentinel",
-  keywords: [
-    "monitoreo de ríos",
-    "mercurio",
-    "Amazonía",
-    "Madre de Dios",
-    "calidad del agua",
-    "minería ilegal",
-    "AquaSentinel",
-  ],
+  description: defaultDescription,
+  applicationName: siteName,
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
+  category: 'environment',
+  keywords,
   icons: {
     icon: [
-      { url: "/favicon.webp", sizes: "32x32", type: "image/webp" },
-      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: '/favicon.webp', sizes: '32x32', type: 'image/webp' },
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
     ],
-    apple: [{ url: "/icon-192.webp", sizes: "192x192", type: "image/webp" }],
+    apple: [{ url: '/icon-192.webp', sizes: '192x192', type: 'image/webp' }],
   },
   openGraph: {
-    type: "website",
-    locale: "es_PE",
+    type: 'website',
+    locale: 'es_PE',
     url: siteUrl,
-    siteName: "AquaSentinel",
-    title: "AquaSentinel - Monitoreo de Ríos",
-    description:
-      "Vigilancia de ríos y alertas por mercurio para proteger la salud pública y la Amazonía.",
-    images: [{ url: "/icon-512.webp", width: 512, height: 512, alt: "AquaSentinel" }],
+    siteName,
+    title: 'AquaSentinel — Monitoreo de mercurio en ríos de Madre de Dios',
+    description: defaultDescription,
+    images: [
+      {
+        url: '/hero-lg.webp',
+        width: 1400,
+        height: 933,
+        alt: 'Monitoreo de ríos amazónicos con AquaSentinel en Madre de Dios',
+      },
+    ],
   },
   twitter: {
-    card: "summary",
-    title: "AquaSentinel - Monitoreo de Ríos",
-    description:
-      "Vigilancia de ríos y alertas por mercurio para proteger la salud pública y la Amazonía.",
-    images: ["/icon-512.webp"],
+    card: 'summary_large_image',
+    title: 'AquaSentinel — Monitoreo de mercurio en ríos de Madre de Dios',
+    description: defaultDescription,
+    images: ['/hero-lg.webp'],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
   alternates: {
     canonical: siteUrl,
+    languages: {
+      'es-PE': siteUrl,
+      es: siteUrl,
+    },
+  },
+  verification: {
+    google: 'NRP35uE_2t1WdOHBnV6zo5rC8mHXd8ey38ov8za5Rgo',
+  },
+  other: {
+    'geo.region': 'PE-MDD',
+    'geo.placename': 'Puerto Maldonado',
+    'geo.position': '-12.5934;-69.1892',
+    ICBM: '-12.5934, -69.1892',
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0077B6",
-  width: "device-width",
+  themeColor: '#0077B6',
+  width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "AquaSentinel",
-  url: siteUrl,
-  description:
-    "Sistema de vigilancia de ríos que alerta sobre contaminación por mercurio y minería ilegal en la Amazonía.",
-  applicationCategory: "EnvironmentalApplication",
-  operatingSystem: "Web",
-  inLanguage: "es",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "PEN",
-  },
 };
 
 export default function RootLayout({
@@ -103,11 +110,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${orbitron.variable}`}>
+    <html lang="es-PE" className={`${inter.variable} ${orbitron.variable}`}>
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
       </head>
       <body className={inter.className}>

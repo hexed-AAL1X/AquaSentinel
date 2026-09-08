@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://aqua-sentinel-two.vercel.app/sitemap.xml
+
+# Host canónico
+Host: https://aqua-sentinel-two.vercel.app

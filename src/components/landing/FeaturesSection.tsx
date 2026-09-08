@@ -42,7 +42,7 @@ export default function FeaturesSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold font-display text-neutral-dark mb-4">
-            Soluciones Avanzadas de Monitoreo
+            Monitoreo de calidad del agua y detección de mercurio
           </h2>
           <p className="text-xl text-neutral-dark/80 max-w-3xl mx-auto">
             El río Madre de Dios transporta 12 toneladas de mercurio al año.

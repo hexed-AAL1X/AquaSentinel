@@ -30,13 +30,13 @@ export default function HeroSection() {
 
       <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold font-display text-white mb-6 leading-tight tracking-wide">
-          SISTEMA INTELIGENTE DE
+          Monitoreo de mercurio en ríos
           <br />
-          MONITOREO AMBIENTAL
+          de Madre de Dios
         </h1>
 
         <p className="text-lg md:text-2xl text-white mb-10 md:mb-12 max-w-3xl mx-auto">
-          Monitoreo en tiempo real de mercurio en los ríos
+          AquaSentinel vigila la calidad del agua en la Amazonía peruana y alerta ante contaminación por minería ilegal
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
